@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow - Manajemen Tugas Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .task-enter {
+        animation: slideIn 0.3s ease;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <div class="container mx-auto px-4 py-12 max-w-2xl">
+      <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-8">
+          <h1 class="text-3xl font-bold text-white flex items-center gap-3">
+            <i class="fas fa-tasks"></i>
+            TaskFlow
+          </h1>
+          <p class="text-indigo-100 mt-2">
+            Kelola tugas harian Anda secara profesional
+          </p>
+        </div>
+
+        <!-- Form Input -->
+        <div class="p-6 border-b border-gray-100">
+          <div class="flex gap-3">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Tulis tugas baru..."
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            />
+            <button
+              id="addBtn"
+              class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl transition duration-200 flex items-center gap-2"
+            >
+              <i class="fas fa-plus"></i> Tambah
+            </button>
+          </div>
+        </div>
+
+        <!-- Statistik -->
+        <div
+          class="flex justify-between px-6 py-3 bg-gray-50 text-sm text-gray-600"
+        >
+          <span id="totalTasks">0 tugas</span>
+          <span id="completedTasks">0 selesai</span>
+        </div>
+
+        <!-- Daftar Tugas -->
+        <ul
+          id="taskList"
+          class="divide-y divide-gray-100 max-h-96 overflow-y-auto"
+        >
+          <!-- Tasks akan muncul di sini via JS -->
+        </ul>
+
+        <!-- Tombol Hapus Semua -->
+        <div class="p-4 border-t border-gray-100 bg-gray-50 text-right">
+          <button
+            id="clearAllBtn"
+            class="text-red-500 hover:text-red-700 text-sm transition flex items-center gap-1 ml-auto"
+          >
+            <i class="fas fa-trash-alt"></i> Hapus semua tugas
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
